@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summit Run | Hill Climb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="interaction-fix.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section class="topbar">
+      <div class="brand">
+        <div class="brand-mark"><span></span><span></span><span></span></div>
+        <div>
+          <p class="eyebrow">SUMMIT RUN</p>
+          <h1>HILL CLIMB</h1>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="icon-button" id="soundButton" aria-label="Toggle sound">♪</button>
+        <button class="icon-button vehicle-button" id="bikeButton" aria-label="Switch to bike">BIKE</button>
+        <button class="icon-button" id="pauseButton" aria-label="Pause game">Ⅱ</button>
+      </div>
+    </section>
+
+    <section class="game-card">
+      <div class="hud">
+        <div class="stat-stack">
+          <span class="hud-label">DISTANCE</span>
+          <strong><span id="distanceValue">0</span><small>m</small></strong>
+        </div>
+        <div class="stage-pill"><span class="live-dot"></span><span id="stageValue">ALPINE PASS</span></div>
+        <div class="stat-stack right">
+          <span class="hud-label">BEST RUN</span>
+          <strong><span id="bestValue">0</span><small>m</small></strong>
+        </div>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="1280" height="680" aria-label="Hill climb racing game"></canvas>
+        <div class="center-message hidden" id="pauseOverlay">
+          <span class="message-kicker">RUN PAUSED</span>
+          <h2>Take a breath.</h2>
+          <button class="primary-button" id="resumeButton">RESUME RUN</button>
+        </div>
+        <div class="center-message" id="startOverlay">
+          <span class="message-kicker">READY FOR THE RIDGE?</span>
+          <h2>Climb higher.<br><em>Stay grounded.</em></h2>
+          <p>Hold the pedals to balance your ride across the wild.</p>
+          <button class="primary-button" id="startButton">START RUN <span>→</span></button>
+          <div class="key-hint"><kbd>A</kbd><kbd>D</kbd> or <span>touch controls</span></div>
+        </div>
+        <div class="finish-message hidden" id="finishOverlay">
+          <span class="message-kicker">RUN OVER</span>
+          <h2>That was a<br><em>clean climb.</em></h2>
+          <div class="finish-score"><span>FINAL DISTANCE</span><strong><b id="finalDistance">0</b>m</strong></div>
+          <button class="primary-button" id="restartButton">DRIVE AGAIN <span>↻</span></button>
+        </div>
+        <div class="fuel-meter"><div class="fuel-icon">⚡</div><div class="meter-track"><div class="meter-fill" id="fuelFill"></div></div><span>FUEL</span></div>
+        <div class="coin-counter"><span class="coin-icon">$</span><strong id="coinValue">0</strong></div>
+        <div class="touch-controls" aria-label="Driving controls">
+          <button class="touch-button brake" id="brakeButton"><span>◀</span><small>BRAKE</small></button>
+          <button class="touch-button gas" id="gasButton"><span>▶</span><small>GAS</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-panel">
+      <div class="mission-copy"><span class="mission-tag">TODAY'S MISSION</span><h2>Reach <strong>1,500m</strong> without rolling over.</h2><div class="progress-line"><span id="missionProgress"></span></div></div>
+      <div class="upgrade-area">
+        <span class="hud-label">GARAGE</span>
+        <button class="upgrade-button" id="upgradeButton"><span class="upgrade-icon">↗</span><span><b>UPGRADE ENGINE</b><small>+ POWER <i id="upgradeCost">120</i> COINS</small></span><strong>+</strong></button>
+      </div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
