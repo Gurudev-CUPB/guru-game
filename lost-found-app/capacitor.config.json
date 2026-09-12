@@ -1,0 +1,8 @@
+{
+  "appId": "com.cupb.community",
+  "appName": "CUPB",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
