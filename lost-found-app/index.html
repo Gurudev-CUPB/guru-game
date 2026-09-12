@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CUPB university community, lost items and reels.">
+  <meta name="theme-color" content="#17343a">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>CUPB | University Community</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="auth-config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <nav class="topbar">
+      <a class="brand" href="#top" aria-label="CUPB home"><span class="brand-mark">✦</span><span>CUPB</span></a>
+      <div class="nav-links"><a href="#campus-feed">Campus feed</a><a href="#lost-items">Lost items</a><button class="nav-inbox" id="openInboxButton">Inbox <span id="messageCount">0</span></button><button class="user-chip" id="switchUserButton"><span id="activeUserAvatar">G</span><span id="activeUserName">Guest</span><b id="verifiedMark">✓</b></button></div>
+      <div class="top-actions"><button class="button button-outline login-button" id="openLoginButton">Continue with Google</button><button class="button button-dark" id="openPostButton"><span>＋</span> Create post</button></div>
+    </nav>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="kicker"><span class="live-dot"></span> Central University of Punjab community</p>
+        <h1>Your campus.<br><em>All in one place.</em></h1>
+        <p class="hero-text">See what is happening at CUPB, share campus updates, watch student reels, or help return a lost item.</p>
+        <div class="hero-actions"><button class="button button-coral" id="openCampusPostButton">Share a campus update <span>↗</span></button><button class="button button-outline" id="reportLostButton">Report lost item</button></div>
+        <div class="trust-row"><div class="mini-avatars"><span>R</span><span>A</span><span>M</span><span>+</span></div><p><strong id="communityCount">128</strong> people helping each other this week</p></div>
+      </div>
+      <div class="hero-visual" aria-label="Illustration of a returned backpack">
+        <div class="sun-disc"></div><span class="orbit orbit-a"></span><span class="orbit orbit-b"></span>
+        <div class="floating-note note-top"><span class="note-icon">✓</span><div><strong>Backpack returned</strong><small>2 min ago · Main lawn</small></div></div>
+        <div class="backpack"><span class="backpack-handle"></span><div class="backpack-pocket"><span></span><span></span><span></span></div><div class="backpack-strap strap-left"></div><div class="backpack-strap strap-right"></div></div>
+        <div class="floating-note note-bottom"><span class="note-icon coral">♥</span><div><strong>Good things happen</strong><small>One post can make a day</small></div></div>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Community statistics"><div><strong id="activeCount">24</strong><span>active posts</span></div><div><strong>86%</strong><span>items reunited</span></div><div><strong>04 min</strong><span>average response</span></div><div class="stats-note"><span class="sparkle">✦</span><p>Small acts. <strong>Big relief.</strong></p></div></section>
+
+    <section class="browse-section" id="campus-feed">
+      <div class="section-heading"><div><p class="kicker">CUPB COMMUNITY</p><h2>What’s happening on campus</h2></div><button class="view-toggle active" id="gridViewButton" aria-label="Grid view">▦</button></div>
+      <div class="content-tabs"><button class="content-tab active" data-section="posts">University posts</button><button class="content-tab" data-section="lost">Lost items</button><button class="content-tab" data-section="reels">Reels</button></div>
+      <div class="toolbar"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search item, place, or keyword..." aria-label="Search posts"></label><div class="filter-group"><button class="filter active" data-filter="all">All posts</button><button class="filter" data-filter="lost">Lost</button><button class="filter" data-filter="found">Found</button><select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option><option value="electronics">Electronics</option><option value="digital">Digital</option><option value="grocery">Grocery & Food</option><option value="clothing">Clothing</option><option value="personal">Personal</option><option value="books">Books & Notes</option><option value="keys">Keys</option><option value="cards">Cards & IDs</option><option value="other">Other</option></select></div></div>
+      <div class="post-grid" id="postGrid"></div>
+      <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>No matching posts</h3><p>Try another search or be the first to post this item.</p><button class="button button-dark" id="emptyPostButton">Create a post</button></div>
+    </section>
+
+    <section class="how-section" id="how-it-works"><div><p class="kicker">CUPB COMMUNITY</p><h2>Campus life,<br><em>shared with care.</em></h2></div><div class="steps"><article><span>01</span><h3>Share updates</h3><p>Post notices, events, achievements and useful information from university life.</p></article><article><span>02</span><h3>Find what matters</h3><p>Switch to Lost Items when you need to recover something around campus.</p></article><article><span>03</span><h3>Show your story</h3><p>Publish short campus reels and discover student life beyond the classroom.</p></article></div></section>
+    <footer><span class="brand"><span class="brand-mark small">✦</span><span>CUPB</span></span><span>Central University of Punjab · Community first</span></footer>
+  </main>
+
+  <dialog id="postDialog"><button class="dialog-close" id="closeDialog" aria-label="Close">×</button><div class="dialog-heading"><p class="kicker">CUPB POST</p><h2 id="postDialogTitle">Share with campus.</h2><p>Post an update, lost item, or short reel for your university community.</p></div><form id="postForm"><div class="type-choice"><label><input type="radio" name="type" value="campus" checked><span><b>Campus update</b><small>Share with CUPB</small></span></label><label><input type="radio" name="type" value="reel"><span><b>Short reel</b><small>Share a moment</small></span></label><label><input type="radio" name="type" value="lost"><span><b>Lost item</b><small>Ask campus for help</small></span></label></div><div class="form-grid"><label>Post title<input name="title" required maxlength="48" placeholder="e.g. Coding club meetup"></label><label>Category<select name="category"><option value="campus">Campus life</option><option value="event">Event</option><option value="achievement">Achievement</option><option value="electronics">Electronics</option><option value="digital">Digital</option><option value="grocery">Grocery & Food</option><option value="clothing">Clothing</option><option value="personal">Personal</option><option value="books">Books & Notes</option><option value="keys">Keys</option><option value="cards">Cards & IDs</option><option value="other">Other</option></select></label><label>Where?<input name="location" required maxlength="48" placeholder="e.g. Student centre"></label><label>When?<input name="date" type="date" required></label><label class="full">Tell the campus more<textarea name="description" required maxlength="180" rows="3" placeholder="What should students know?"></textarea></label></div><button class="button button-coral full-button" type="submit">Publish to CUPB <span>↗</span></button></form></dialog>
+  <dialog id="messageDialog"><button class="dialog-close" id="closeMessageDialog" aria-label="Close">×</button><div class="dialog-heading"><p class="kicker">PRIVATE MESSAGE</p><h2 id="messageTitle">Message the poster</h2><p>Keep the first message friendly. Do not share sensitive information.</p></div><form id="messageForm"><label class="message-label">Your message<textarea name="message" required maxlength="300" rows="5" placeholder="Hi! I think this might be my item because..."></textarea></label><button class="button button-coral full-button" type="submit">Send message <span>↗</span></button></form></dialog>
+  <dialog id="inboxDialog"><button class="dialog-close" id="closeInboxDialog" aria-label="Close">×</button><div class="dialog-heading"><p class="kicker">YOUR INBOX</p><h2>Messages</h2><p id="inboxEmpty">Messages about your posts will appear here.</p></div><div id="messageList" class="message-list"></div></dialog>
+  <dialog id="userDialog"><button class="dialog-close" id="closeUserDialog" aria-label="Close">×</button><div class="dialog-heading"><p class="kicker">VERIFIED PROFILES</p><h2>Who are you today?</h2><p>Demo profile switcher. Production accounts will use secure login.</p></div><div id="userList" class="user-list"></div></dialog>
+  <dialog id="loginDialog"><button class="dialog-close" id="closeLoginDialog" aria-label="Close">×</button><div class="dialog-heading"><p class="kicker">SECURE SIGN IN</p><h2>Welcome to CUPB.</h2><p>Use your university Google account to join the community.</p></div><div id="googleButton" class="google-button"></div><p class="login-note">Only your name, email and profile photo are used. Your email is never shown on public posts.</p><button class="permission-button" id="enableAlertsButton" type="button">Allow campus notifications</button></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

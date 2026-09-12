@@ -1,0 +1,13 @@
+{
+  "name": "CUPB - University Community",
+  "short_name": "CUPB",
+  "description": "CUPB university posts, reels and lost items.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f8f5ed",
+  "theme_color": "#17343a",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
